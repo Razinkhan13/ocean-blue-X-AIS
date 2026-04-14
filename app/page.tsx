@@ -152,7 +152,7 @@ function StatusPill({ label, tone = "neutral" }: { label: string; tone?: StatusT
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${toneStyles[tone]}`}
+      className={`inline-flex items-center rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] ${toneStyles[tone]}`}
     >
       {label}
     </span>
@@ -169,9 +169,11 @@ function Panel({
   children: ReactNode;
 }) {
   return (
-    <section className="card-surface group rounded-3xl border border-white/10 p-6 transition duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-white/30">
+    <section className="card-surface group rounded-3xl border border-white/10 p-6 transition duration-300 ease-out motion-safe:hover:border-white/30">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{title}</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-[var(--tracking-wide)] text-white/70">
+          {title}
+        </h2>
         {action}
       </div>
       <div className="mt-5 space-y-4 text-sm text-white/80">{children}</div>
@@ -208,10 +210,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap gap-3">
-            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
+            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
               View runbook
             </button>
-            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[var(--accent-shadow)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
+            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-black shadow-[var(--accent-shadow)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
               Review gate A
             </button>
           </div>
@@ -221,9 +223,11 @@ export default function Home() {
           {metrics.map((metric) => (
             <div
               key={metric.label}
-              className="card-surface rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-white/30"
+              className="card-surface rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-300 ease-out motion-safe:hover:border-white/30"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-white/60">{metric.label}</p>
+              <p className="text-xs uppercase tracking-[var(--tracking-wide)] text-white/60">
+                {metric.label}
+              </p>
               <div className="mt-2 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold text-white">{metric.value}</span>
                 <span className="text-xs text-[color:var(--accent)]">{metric.delta}</span>
