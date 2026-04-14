@@ -1,38 +1,45 @@
-# OceanBlue Growth OS (Professional Web Application Blueprint)
+# OceanBlue Growth OS · Mission Control
 
-This repository is a professional starter blueprint for **OceanBlue**, a marketing and growth agency that uses AI and automation to run client growth operations end-to-end.
+This repository is the starter implementation for the OceanBlue Growth OS: a Next.js (App Router) application that follows the blueprint in `docs/`. It ships with a dark, mission-control style UI that highlights the tenant-safe, approval-gated operating model for AI-assisted growth work.
 
-## What this project includes
+## What’s included
 
-- A production-oriented architecture recommendation.
-- A concrete implementation roadmap.
-- A GitHub bootstrap process (with your authorization gate).
-- AI + automation system design for social media growth operations.
+- Next.js 16 + TypeScript + Tailwind (App Router) with custom branding for OceanBlue.
+- Linting (`next lint`), formatting (Prettier), type-checking, and Jest + Testing Library unit tests.
+- CI workflow (GitHub Actions) that runs lint, typecheck, tests, and Prettier check.
+- Environment contract for Supabase, OpenAI, n8n, Stripe, and PostHog secrets (`.env.example`).
+- Documentation from the blueprint preserved in `docs/` (roadmap, research, bootstrap steps).
 
-## Product Vision
+## Getting started
 
-OceanBlue should become a unified platform where your team can:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Copy and fill environment variables:
+   ```bash
+   cp .env.example .env.local
+   # add Supabase, OpenAI, n8n, Stripe, PostHog keys
+   ```
+3. Run the dev server:
+   ```bash
+   npm run dev
+   ```
+   Visit http://localhost:3000 to view the mission control shell.
 
-1. Onboard clients and store brand context.
-2. Build strategy from AI-assisted research.
-3. Plan and produce content.
-4. Orchestrate posting workflows and approvals.
-5. Track performance dashboards and growth KPIs.
-6. Run AI automations safely with human approval checkpoints.
+## Scripts
 
-## Recommended Technical Stack
+- `npm run dev` – start the local dev server.
+- `npm run lint` – ESLint with Next.js core web vitals.
+- `npm run typecheck` – TypeScript type checking.
+- `npm run test` – Jest + Testing Library unit tests.
+- `npm run format` / `npm run format:fix` – Prettier check or write.
 
-- **Frontend + Backend app**: Next.js (App Router), TypeScript.
-- **Database + Auth + Storage**: Supabase (Postgres, Auth, Storage).
-- **Automation Orchestration**: n8n (self-hosted or cloud).
-- **AI Layer**: OpenAI API (content ideation, analysis, summarization).
-- **Payments**: Stripe subscriptions.
-- **Hosting**: Vercel (web), Supabase managed, n8n host.
-- **Analytics**: PostHog + custom KPI tables in Postgres.
+## CI
 
-See detailed rationale in `docs/research-and-decisions.md`.
+The workflow at `.github/workflows/ci.yml` runs lint, typecheck, tests, and Prettier on pushes and pull requests.
 
-## System Modules (MVP)
+## Additional references
 
 - **Client Workspace**: clients, brands, channels, access control.
 - **AI Strategy Studio**: audience/persona, competitor snapshots, campaign briefs.
@@ -74,3 +81,6 @@ Authorize Phase 0 + Phase 1 only:
 - Basic client onboarding + dashboard shell
 
 After your authorization, development can proceed to AI strategy and automation flows.
+- Blueprint & decisions: `docs/blueprint.md`, `docs/research-and-decisions.md`
+- Roadmap: `docs/implementation-roadmap.md`
+- Repo bootstrap guidance: `docs/repo-and-github-bootstrap.md`
