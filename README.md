@@ -40,6 +40,14 @@ See detailed rationale in `docs/research-and-decisions.md`.
 - **Automation Hub**: triggers, actions, audit logs, retry/review queues.
 - **Performance Dashboard**: reach, engagement, lead, conversion trendlines.
 
+## Customer Proof Pack
+
+Use `docs/customer-proof.md` to show stakeholders a fast, convincing story:
+- Real-world metrics (cycle time, engagement, on-time publishes).
+- An anonymized retail case study with before/after numbers.
+- Ready-to-embed visuals (dashboard, pipeline, automation audit) and a storyboard that walks from Plan -> Produce -> Protect -> Prove.
+- Deployment justification centered on safety, speed, and observable value.
+
 ## Security and Compliance Baseline
 
 - Tenant isolation via Postgres Row Level Security.
