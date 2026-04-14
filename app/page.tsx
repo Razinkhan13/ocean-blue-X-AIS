@@ -144,15 +144,15 @@ const strategyPrompts = [
 
 function StatusPill({ label, tone = "neutral" }: { label: string; tone?: StatusTone }) {
   const toneStyles: Record<StatusTone, string> = {
-    success: "bg-emerald-500/10 text-emerald-200 border-emerald-500/30",
-    warning: "bg-amber-500/10 text-amber-200 border-amber-500/40",
-    info: "bg-sky-500/10 text-sky-200 border-sky-500/30",
-    neutral: "bg-slate-700/40 text-slate-200 border-slate-600/60",
+    success: "bg-emerald-400/10 text-emerald-200 border-emerald-400/40",
+    warning: "bg-amber-400/10 text-amber-200 border-amber-400/40",
+    info: "bg-[var(--accent-soft)] text-[color:var(--accent)] border-[color:var(--accent)]",
+    neutral: "bg-white/5 text-white/70 border-white/20",
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${toneStyles[tone]}`}
+      className={`inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] ${toneStyles[tone]}`}
     >
       {label}
     </span>
@@ -169,12 +169,14 @@ function Panel({
   children: ReactNode;
 }) {
   return (
-    <section className="card-surface rounded-2xl p-6">
+    <section className="card-surface group rounded-3xl border border-white/10 p-6 transition duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-white/30">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-lg font-semibold text-slate-50">{title}</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
+          {title}
+        </h2>
         {action}
       </div>
-      <div className="mt-4 space-y-4 text-sm text-slate-200">{children}</div>
+      <div className="mt-5 space-y-4 text-sm text-white/80">{children}</div>
     </section>
   );
 }
@@ -182,19 +184,22 @@ function Panel({
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 opacity-80 [mask-image:radial-gradient(60%_50%_at_50%_25%,_black,_transparent)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.12),transparent_28%),radial-gradient(circle_at_70%_10%,rgba(79,70,229,0.15),transparent_30%),radial-gradient(circle_at_80%_60%,rgba(16,185,129,0.14),transparent_30%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(60%_50%_at_50%_25%,_black,_transparent)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(202,255,61,0.18),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(255,255,255,0.08),transparent_34%)]" />
       </div>
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-12 lg:px-8">
-        <header className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-200">
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 pb-16 pt-12 lg:px-10">
+        <header
+          className="fade-up flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+          style={{ animationDelay: "40ms" }}
+        >
+          <div className="space-y-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/60">
               OceanBlue Growth OS
             </p>
-            <h1 className="text-3xl font-semibold text-slate-50 sm:text-4xl">
-              OceanBlue mission control
+            <h1 className="font-[var(--font-display)] text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <span className="text-[color:var(--accent)]">OceanBlue</span> mission control
             </h1>
-            <p className="max-w-2xl text-base text-slate-200">
+            <p className="max-w-2xl text-base text-white/70">
               AI-assisted operating system for client growth teams. Tenant-safe by design,
               approval-gated before spend or posting, with automation traces for every decision.
             </p>
@@ -204,53 +209,53 @@ export default function Home() {
               <StatusPill label="Phase 1 building" tone="warning" />
             </div>
           </div>
-          <div className="flex gap-3">
-            <button className="rounded-xl border border-slate-700 bg-slate-900/50 px-4 py-3 text-sm font-semibold text-slate-50 shadow-lg shadow-slate-900/40 transition hover:-translate-y-0.5 hover:border-slate-500 hover:bg-slate-900">
+          <div className="flex flex-wrap gap-3">
+            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
               View runbook
             </button>
-            <button className="rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 transition hover:-translate-y-0.5 hover:bg-sky-400">
+            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-black shadow-[0_20px_50px_rgba(202,255,61,0.35)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
               Review gate A
             </button>
           </div>
         </header>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="fade-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style={{ animationDelay: "120ms" }}>
           {metrics.map((metric) => (
             <div
               key={metric.label}
-              className="card-surface rounded-2xl border border-white/5 bg-white/5 p-4 shadow-inner shadow-slate-900/50"
+              className="card-surface rounded-2xl border border-white/10 bg-white/5 p-4 transition duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-white/30"
             >
-              <p className="text-sm text-slate-300">{metric.label}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-white/60">{metric.label}</p>
               <div className="mt-2 flex items-baseline gap-2">
-                <span className="text-2xl font-semibold text-slate-50">{metric.value}</span>
-                <span className="text-xs text-emerald-300">{metric.delta}</span>
+                <span className="text-2xl font-semibold text-white">{metric.value}</span>
+                <span className="text-xs text-[color:var(--accent)]">{metric.delta}</span>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="fade-up grid gap-6 lg:grid-cols-2" style={{ animationDelay: "200ms" }}>
           <Panel title="This week's focus" action={<StatusPill label="Execution" tone="info" />}>
             <div className="space-y-4">
               {weekFocus.map((section) => (
                 <div
                   key={section.title}
-                  className="rounded-xl border border-white/10 bg-slate-900/50 p-4"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-sm font-semibold text-slate-50">{section.title}</p>
-                      <p className="text-xs text-slate-300">{section.state}</p>
+                      <p className="text-sm font-semibold text-white">{section.title}</p>
+                      <p className="text-xs text-white/60">{section.state}</p>
                     </div>
                     <StatusPill
                       label={section.state}
                       tone={section.state.includes("Ready") ? "success" : "warning"}
                     />
                   </div>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-200">
+                  <ul className="mt-3 space-y-2 text-sm text-white/80">
                     {section.items.map((item) => (
                       <li key={item} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
                         {item}
                       </li>
                     ))}
@@ -268,11 +273,11 @@ export default function Home() {
               {approvals.map((gate) => (
                 <div
                   key={gate.name}
-                  className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="flex items-start justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div>
-                    <p className="text-sm font-semibold text-slate-50">{gate.name}</p>
-                    <p className="text-xs text-slate-300">{gate.owner}</p>
+                    <p className="text-sm font-semibold text-white">{gate.name}</p>
+                    <p className="text-xs text-white/60">{gate.owner}</p>
                   </div>
                   <StatusPill label={gate.status} tone={gate.tone} />
                 </div>
@@ -281,7 +286,7 @@ export default function Home() {
           </Panel>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="fade-up grid gap-6 lg:grid-cols-3" style={{ animationDelay: "280ms" }}>
           <Panel
             title="Client workspaces"
             action={<StatusPill label="Tenant safe" tone="success" />}
@@ -290,12 +295,12 @@ export default function Home() {
               {workspaces.map((workspace) => (
                 <div
                   key={workspace.name}
-                  className="rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-slate-50">{workspace.name}</p>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-sm font-semibold text-white">{workspace.name}</p>
+                      <p className="text-xs text-white/60">
                         Owner {workspace.owner} · {workspace.stage}
                       </p>
                     </div>
@@ -310,7 +315,7 @@ export default function Home() {
                       }
                     />
                   </div>
-                  <p className="mt-2 text-sm text-slate-200">{workspace.notes}</p>
+                  <p className="mt-2 text-sm text-white/80">{workspace.notes}</p>
                 </div>
               ))}
             </div>
@@ -324,11 +329,11 @@ export default function Home() {
               {contentPipeline.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="flex items-start justify-between gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div>
-                    <p className="text-sm font-semibold text-slate-50">{item.title}</p>
-                    <p className="text-xs text-slate-300">
+                    <p className="text-sm font-semibold text-white">{item.title}</p>
+                    <p className="text-xs text-white/60">
                       {item.channel} · ETA {item.eta}
                     </p>
                   </div>
@@ -346,12 +351,12 @@ export default function Home() {
               {automations.map((flow) => (
                 <div
                   key={flow.name}
-                  className="rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-slate-50">{flow.name}</p>
-                      <p className="text-xs text-slate-300">
+                      <p className="text-sm font-semibold text-white">{flow.name}</p>
+                      <p className="text-xs text-white/60">
                         {flow.window} · {flow.gate}
                       </p>
                     </div>
@@ -363,7 +368,7 @@ export default function Home() {
           </Panel>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
+        <div className="fade-up grid gap-6 lg:grid-cols-[1.2fr,0.8fr]" style={{ animationDelay: "360ms" }}>
           <Panel
             title="AI Strategy Studio"
             action={<StatusPill label="Guardrails on" tone="success" />}
@@ -372,13 +377,13 @@ export default function Home() {
               {strategyPrompts.map((prompt) => (
                 <div
                   key={prompt.name}
-                  className="rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-semibold text-slate-50">{prompt.name}</p>
+                    <p className="text-sm font-semibold text-white">{prompt.name}</p>
                     <StatusPill label={prompt.lastRun} tone="neutral" />
                   </div>
-                  <p className="mt-2 text-sm text-slate-200">{prompt.detail}</p>
+                  <p className="mt-2 text-sm text-white/80">{prompt.detail}</p>
                 </div>
               ))}
             </div>
@@ -389,19 +394,19 @@ export default function Home() {
               {performance.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-white/10 bg-slate-900/40 p-4"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
                 >
                   <div className="flex items-center justify-between">
-                    <p className="text-sm text-slate-200">{stat.label}</p>
-                    <span className="text-xs text-emerald-300">{stat.trend}</span>
+                    <p className="text-sm text-white/80">{stat.label}</p>
+                    <span className="text-xs text-[color:var(--accent)]">{stat.trend}</span>
                   </div>
-                  <div className="mt-2 h-2 rounded-full bg-slate-800">
+                  <div className="mt-2 h-2 rounded-full bg-white/10">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-sky-400 to-emerald-300"
+                      className="h-full rounded-full bg-gradient-to-r from-[color:var(--accent)] to-white"
                       style={{ width: stat.progress }}
                     />
                   </div>
-                  <p className="mt-2 text-lg font-semibold text-slate-50">{stat.value}</p>
+                  <p className="mt-2 text-lg font-semibold text-white">{stat.value}</p>
                 </div>
               ))}
             </div>
