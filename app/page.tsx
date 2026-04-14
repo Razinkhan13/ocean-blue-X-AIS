@@ -171,9 +171,7 @@ function Panel({
   return (
     <section className="card-surface group rounded-3xl border border-white/10 p-6 transition duration-300 ease-out motion-safe:hover:-translate-y-1 motion-safe:hover:border-white/30">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-          {title}
-        </h2>
+        <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">{title}</h2>
         {action}
       </div>
       <div className="mt-5 space-y-4 text-sm text-white/80">{children}</div>
@@ -219,7 +217,10 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="fade-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style={{ animationDelay: "120ms" }}>
+        <div
+          className="fade-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          style={{ animationDelay: "120ms" }}
+        >
           {metrics.map((metric) => (
             <div
               key={metric.label}
@@ -349,10 +350,7 @@ export default function Home() {
           >
             <div className="space-y-3">
               {automations.map((flow) => (
-                <div
-                  key={flow.name}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                >
+                <div key={flow.name} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-semibold text-white">{flow.name}</p>
@@ -368,7 +366,10 @@ export default function Home() {
           </Panel>
         </div>
 
-        <div className="fade-up grid gap-6 lg:grid-cols-[1.2fr,0.8fr]" style={{ animationDelay: "360ms" }}>
+        <div
+          className="fade-up grid gap-6 lg:grid-cols-[1.2fr,0.8fr]"
+          style={{ animationDelay: "360ms" }}
+        >
           <Panel
             title="AI Strategy Studio"
             action={<StatusPill label="Guardrails on" tone="success" />}
@@ -392,10 +393,7 @@ export default function Home() {
           <Panel title="Performance snapshot" action={<StatusPill label="Telemetry" tone="info" />}>
             <div className="space-y-3">
               {performance.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4"
-                >
+                <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-white/80">{stat.label}</p>
                     <span className="text-xs text-[color:var(--accent)]">{stat.trend}</span>
