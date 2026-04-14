@@ -152,7 +152,7 @@ function StatusPill({ label, tone = "neutral" }: { label: string; tone?: StatusT
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] ${toneStyles[tone]}`}
+      className={`inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${toneStyles[tone]}`}
     >
       {label}
     </span>
@@ -186,10 +186,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(202,255,61,0.18),transparent_32%),radial-gradient(circle_at_85%_70%,rgba(255,255,255,0.08),transparent_34%)]" />
       </div>
       <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 pb-16 pt-12 lg:px-10">
-        <header
-          className="fade-up flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
-          style={{ animationDelay: "40ms" }}
-        >
+        <header className="fade-up fade-up-1 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/60">
               OceanBlue Growth OS
@@ -208,19 +205,16 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap gap-3">
-            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
+            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
               View runbook
             </button>
-            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-black shadow-[0_20px_50px_rgba(202,255,61,0.35)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
+            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_20px_50px_rgba(202,255,61,0.35)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
               Review gate A
             </button>
           </div>
         </header>
 
-        <div
-          className="fade-up grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-          style={{ animationDelay: "120ms" }}
-        >
+        <div className="fade-up fade-up-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
             <div
               key={metric.label}
@@ -235,7 +229,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="fade-up grid gap-6 lg:grid-cols-2" style={{ animationDelay: "200ms" }}>
+        <div className="fade-up fade-up-3 grid gap-6 lg:grid-cols-2">
           <Panel title="This week's focus" action={<StatusPill label="Execution" tone="info" />}>
             <div className="space-y-4">
               {weekFocus.map((section) => (
@@ -287,7 +281,7 @@ export default function Home() {
           </Panel>
         </div>
 
-        <div className="fade-up grid gap-6 lg:grid-cols-3" style={{ animationDelay: "280ms" }}>
+        <div className="fade-up fade-up-4 grid gap-6 lg:grid-cols-3">
           <Panel
             title="Client workspaces"
             action={<StatusPill label="Tenant safe" tone="success" />}
@@ -366,10 +360,7 @@ export default function Home() {
           </Panel>
         </div>
 
-        <div
-          className="fade-up grid gap-6 lg:grid-cols-[1.2fr,0.8fr]"
-          style={{ animationDelay: "360ms" }}
-        >
+        <div className="fade-up fade-up-5 grid gap-6 lg:grid-cols-[1.2fr,0.8fr]">
           <Panel
             title="AI Strategy Studio"
             action={<StatusPill label="Guardrails on" tone="success" />}

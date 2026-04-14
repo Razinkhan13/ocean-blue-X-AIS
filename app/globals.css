@@ -41,6 +41,26 @@ a {
   animation: fade-up 0.7s ease-out both;
 }
 
+.fade-up-1 {
+  animation-delay: 40ms;
+}
+
+.fade-up-2 {
+  animation-delay: 120ms;
+}
+
+.fade-up-3 {
+  animation-delay: 200ms;
+}
+
+.fade-up-4 {
+  animation-delay: 280ms;
+}
+
+.fade-up-5 {
+  animation-delay: 360ms;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
