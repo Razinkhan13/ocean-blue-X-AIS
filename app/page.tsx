@@ -57,6 +57,58 @@ const approvals = [
   },
 ];
 
+const integrations = [
+  {
+    name: "Supabase",
+    status: "RLS staged",
+    detail: "Tenant auth, storage, and policies wired for isolation.",
+    tone: "success" as StatusTone,
+  },
+  {
+    name: "OpenAI",
+    status: "Guardrails on",
+    detail: "Prompt templates require review before publish.",
+    tone: "info" as StatusTone,
+  },
+  {
+    name: "n8n",
+    status: "Workflows queued",
+    detail: "Templates for scheduling, publishing, and reporting.",
+    tone: "info" as StatusTone,
+  },
+  {
+    name: "Stripe",
+    status: "Activation paused",
+    detail: "Plans drafted; billing locked until gate F approval.",
+    tone: "warning" as StatusTone,
+  },
+  {
+    name: "PostHog",
+    status: "Telemetry ready",
+    detail: "Events mapped to KPI snapshots for dashboards.",
+    tone: "success" as StatusTone,
+  },
+];
+
+const guardrails = [
+  {
+    title: "Tenant isolation",
+    detail: "Postgres Row Level Security on tenant_id for every table.",
+  },
+  {
+    title: "RBAC roles",
+    detail: "Owner, manager, strategist, creator, analyst, client-view enforced.",
+  },
+  {
+    title: "Approval workflow",
+    detail: "Manual sign-off required before any external posting or automation publish.",
+  },
+  {
+    title: "Audit logging",
+    detail: "Trace AI outputs and automation executions with reviewer attribution.",
+  },
+];
+
 const workspaces = [
   {
     name: "Lumen Bikes",
@@ -385,7 +437,10 @@ export default function Home() {
             </div>
           </Panel>
 
-          <Panel title="Performance snapshot" action={<StatusPill label="Telemetry" tone="info" />}>
+          <Panel
+            title="Performance dashboard"
+            action={<StatusPill label="Telemetry" tone="info" />}
+          >
             <div className="space-y-3">
               {performance.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -400,6 +455,46 @@ export default function Home() {
                     />
                   </div>
                   <p className="mt-2 text-lg font-semibold text-white">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </div>
+
+        <div className="fade-up fade-up-6 grid gap-6 lg:grid-cols-2">
+          <Panel title="Systems stack readiness" action={<StatusPill label="Core" tone="info" />}>
+            <div className="space-y-3">
+              {integrations.map((tool) => (
+                <div key={tool.name} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-white">{tool.name}</p>
+                      <p className="text-xs text-white/60">{tool.detail}</p>
+                    </div>
+                    <StatusPill label={tool.status} tone={tool.tone} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Panel>
+
+          <Panel
+            title="Safety guardrails"
+            action={<StatusPill label="Compliance" tone="warning" />}
+          >
+            <div className="space-y-3">
+              {guardrails.map((control) => (
+                <div
+                  key={control.title}
+                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
+                >
+                  <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/5 text-[10px] font-semibold uppercase tracking-[var(--tracking-wide)] text-[color:var(--accent)]">
+                    ON
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{control.title}</p>
+                    <p className="text-xs text-white/70">{control.detail}</p>
+                  </div>
                 </div>
               ))}
             </div>

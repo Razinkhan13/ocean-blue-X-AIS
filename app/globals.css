@@ -15,6 +15,7 @@
   --fade-delay-3: 200ms;
   --fade-delay-4: 280ms;
   --fade-delay-5: 360ms;
+  --fade-delay-6: 440ms;
 }
 
 body {
@@ -71,6 +72,10 @@ a {
 
 .fade-up-5 {
   animation-delay: var(--fade-delay-5);
+}
+
+.fade-up-6 {
+  animation-delay: var(--fade-delay-6);
 }
 
 @keyframes fade-up {
