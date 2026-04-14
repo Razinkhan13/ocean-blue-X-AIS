@@ -193,7 +193,7 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/60">
               OceanBlue Growth OS
             </p>
-            <h1 className="font-display text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl uppercase tracking-[var(--tracking-display)] text-white sm:text-5xl lg:text-6xl">
               <span className="text-[color:var(--accent)]">OceanBlue</span> mission control
             </h1>
             <p className="max-w-2xl text-base text-white/70">

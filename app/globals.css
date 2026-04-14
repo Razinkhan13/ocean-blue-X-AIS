@@ -9,6 +9,7 @@
   --accent-soft: rgba(202, 255, 61, 0.2);
   --accent-shadow: 0 20px 50px rgba(202, 255, 61, 0.35);
   --tracking-wide: 0.2em;
+  --tracking-display: 0.02em;
   --fade-delay-1: 40ms;
   --fade-delay-2: 120ms;
   --fade-delay-3: 200ms;
