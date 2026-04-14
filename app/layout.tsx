@@ -1,22 +1,27 @@
 import type { Metadata } from "next";
-import { Anton, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const sans = Space_Grotesk({
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/SpaceGrotesk-Variable.ttf",
   variable: "--font-sans",
+  weight: "300 700",
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const mono = localFont({
+  src: [
+    { path: "./fonts/IBMPlexMono-Regular.ttf", weight: "400", style: "normal" },
+    { path: "./fonts/IBMPlexMono-Medium.ttf", weight: "500", style: "normal" },
+    { path: "./fonts/IBMPlexMono-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "./fonts/IBMPlexMono-Bold.ttf", weight: "700", style: "normal" },
+  ],
   variable: "--font-mono",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const display = Anton({
-  subsets: ["latin"],
+const display = localFont({
+  src: "./fonts/Anton-Regular.ttf",
   variable: "--font-display",
   weight: "400",
   display: "swap",
