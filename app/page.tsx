@@ -146,13 +146,13 @@ function StatusPill({ label, tone = "neutral" }: { label: string; tone?: StatusT
   const toneStyles: Record<StatusTone, string> = {
     success: "bg-emerald-400/10 text-emerald-200 border-emerald-400/40",
     warning: "bg-amber-400/10 text-amber-200 border-amber-400/40",
-    info: "bg-[var(--accent-soft)] text-[color:var(--accent)] border-[color:var(--accent)]",
+    info: "bg-[var(--accent-soft)] text-[color:var(--accent)] border-[var(--accent)]",
     neutral: "bg-white/5 text-white/70 border-white/20",
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${toneStyles[tone]}`}
+      className={`inline-flex items-center rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] ${toneStyles[tone]}`}
     >
       {label}
     </span>
@@ -191,7 +191,10 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/60">
               OceanBlue Growth OS
             </p>
-            <h1 className="font-[var(--font-display)] text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1
+              className="text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
               <span className="text-[color:var(--accent)]">OceanBlue</span> mission control
             </h1>
             <p className="max-w-2xl text-base text-white/70">
@@ -208,7 +211,7 @@ export default function Home() {
             <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
               View runbook
             </button>
-            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[0_20px_50px_rgba(202,255,61,0.35)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
+            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-black shadow-[var(--accent-shadow)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
               Review gate A
             </button>
           </div>
