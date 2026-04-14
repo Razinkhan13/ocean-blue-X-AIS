@@ -193,10 +193,7 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.45em] text-white/60">
               OceanBlue Growth OS
             </p>
-            <h1
-              className="text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
+            <h1 className="font-display text-4xl uppercase tracking-tight text-white sm:text-5xl lg:text-6xl">
               <span className="text-[color:var(--accent)]">OceanBlue</span> mission control
             </h1>
             <p className="max-w-2xl text-base text-white/70">
@@ -210,10 +207,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap gap-3">
-            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white">
+            <button className="rounded-full border border-white/20 bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-white/70 transition duration-300 ease-out hover:-translate-y-0.5 hover:border-white hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80">
               View runbook
             </button>
-            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-black shadow-[var(--accent-shadow)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white">
+            <button className="rounded-full bg-[color:var(--accent)] px-5 py-3 text-xs font-semibold uppercase tracking-[var(--tracking-wide)] text-black shadow-[var(--accent-shadow)] transition duration-300 ease-out hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80">
               Review gate A
             </button>
           </div>

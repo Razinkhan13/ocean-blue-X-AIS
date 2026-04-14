@@ -36,6 +36,10 @@ a {
   text-decoration: none;
 }
 
+.font-display {
+  font-family: var(--font-display);
+}
+
 .card-surface {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   border: 1px solid var(--border);
@@ -82,5 +86,7 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .fade-up {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
