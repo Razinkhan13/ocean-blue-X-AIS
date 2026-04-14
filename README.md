@@ -5,7 +5,7 @@ This repository is the starter implementation for the OceanBlue Growth OS: a Nex
 ## What’s included
 
 - Next.js 16 + TypeScript + Tailwind (App Router) with custom branding for OceanBlue.
-- Linting (`next lint`), formatting (Prettier), type-checking, and Jest + Testing Library unit tests.
+- Linting (`eslint .`), formatting (Prettier), type-checking, and Jest + Testing Library unit tests.
 - CI workflow (GitHub Actions) that runs lint, typecheck, tests, and Prettier check.
 - Environment contract for Supabase, OpenAI, n8n, Stripe, and PostHog secrets (`.env.example`).
 - Documentation from the blueprint preserved in `docs/` (roadmap, research, bootstrap steps).
