@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Anton, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const sans = Space_Grotesk({
@@ -15,6 +15,13 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const display = Anton({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "OceanBlue Growth OS",
   description: "Mission control for AI-assisted marketing and automation operations.",
@@ -26,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${display.variable}`}>
       <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">{children}</body>
     </html>
   );
