@@ -44,3 +44,4 @@ The workflow at `.github/workflows/ci.yml` runs lint, typecheck, tests, and Pret
 - Blueprint & decisions: `docs/blueprint.md`, `docs/research-and-decisions.md`
 - Roadmap: `docs/implementation-roadmap.md`
 - Repo bootstrap guidance: `docs/repo-and-github-bootstrap.md`
+- Features + user manual: `docs/features-and-user-manual.md`
