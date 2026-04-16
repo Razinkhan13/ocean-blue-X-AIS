@@ -29,10 +29,7 @@ describe("Supabase browser client", () => {
 
   it("creates a browser client with env vars", () => {
     const client = createClient();
-    expect(createBrowserClient).toHaveBeenCalledWith(
-      "https://test.supabase.co",
-      "test-anon-key",
-    );
+    expect(createBrowserClient).toHaveBeenCalledWith("https://test.supabase.co", "test-anon-key");
     expect(client).toBeDefined();
     expect(client.from).toBeDefined();
   });
